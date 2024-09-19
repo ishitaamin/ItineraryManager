@@ -1,5 +1,6 @@
 package com.example.itinerarymanager;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -9,6 +10,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.itinerarymanager.R;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,5 +24,11 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Start LoginActivity2
+        Intent intent = new Intent(MainActivity.this, LoginActivity2.class);
+        startActivity(intent);
+        finish(); // Close MainActivity
     }
 }

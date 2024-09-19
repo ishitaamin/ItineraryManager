@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "800708987627",
+    "project_id": "itinerary-manager-eeaa0",
+    "storage_bucket": "itinerary-manager-eeaa0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:800708987627:android:0d10d87135aa2d3e884cae",
+        "android_client_info": {
+          "package_name": "com.example.itinerarymanager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhfSHVWeYN-o2n4iD1MVC0kyCmAIZfWRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
