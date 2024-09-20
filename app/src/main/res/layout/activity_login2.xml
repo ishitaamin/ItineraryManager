@@ -10,7 +10,7 @@
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="300dp"
-        android:layout_height="41dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:hint="Enter email address"
         android:inputType="textEmailAddress"

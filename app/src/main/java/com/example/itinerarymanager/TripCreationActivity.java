@@ -60,6 +60,7 @@ public class TripCreationActivity extends AppCompatActivity {
             Date startDate = sdf.parse(startDateString);
             Date endDate = sdf.parse(endDateString);
 
+            assert endDate != null;
             if (endDate.before(startDate)) {
                 Toast.makeText(this, "End date cannot be before start date", Toast.LENGTH_SHORT).show();
                 return;
@@ -102,6 +103,7 @@ public class TripCreationActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(this, "Invalid date format. Please use YYYY-MM-DD.", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     // Optional: Reset the fields after the trip is created
