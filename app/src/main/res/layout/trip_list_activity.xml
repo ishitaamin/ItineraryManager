@@ -3,21 +3,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#F0F5F9"
     android:padding="16dp">
 
-    <!-- Container for the trips (dynamically filled) -->
-    <LinearLayout
-        android:id="@+id/tripsContainer"
+    <!-- Title for the trip list -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"/>
+        android:text="Trips"
+        android:textColor="#006D77"
+        android:textSize="24sp" />
+
+    <!-- Scrollable container for the trips -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        android:fadingEdge="none"
+        >
+    <!-- weight ensures it takes up available space -->
+
+
+        <LinearLayout
+            android:id="@+id/tripsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+    </ScrollView>
 
     <!-- Button to add a new trip -->
     <Button
         android:id="@+id/addTripButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:text="Add New Trip" />
+        android:layout_gravity="center_horizontal"
+        android:text="Add New Trip"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:backgroundTint="#006d77"
+        android:background="@drawable/add_button_background"
+        android:height="40dp"/>
+
+    <!-- Use dp for scaling -->
 
 </LinearLayout>

@@ -21,6 +21,8 @@
             android:name=".LoginActivity2"
             android:exported="false" />
         <activity android:name=".TripCreationActivity" />
+        <activity android:name=".ItineraryActivity"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
