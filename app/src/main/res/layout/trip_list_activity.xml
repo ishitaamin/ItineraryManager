@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#F0F5F9"
     android:padding="16dp">
@@ -38,13 +39,13 @@
         android:id="@+id/addTripButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Add New Trip"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:backgroundTint="#006d77"
-        android:background="@drawable/add_button_background"
-        android:height="40dp"/>
+        android:backgroundTint="#106396"
+        android:text="Add Trip"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:cornerRadius="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
 
     <!-- Use dp for scaling -->
 
