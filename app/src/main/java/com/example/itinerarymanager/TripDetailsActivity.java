@@ -19,6 +19,9 @@ public class TripDetailsActivity extends AppCompatActivity {
         TextView day1TextView = findViewById(R.id.day_1);
         TextView day2TextView = findViewById(R.id.day_2);
         TextView day3TextView = findViewById(R.id.day_3);
+        TextView tripMembers = findViewById(R.id.trip_members);
+        TextView tripDocuments = findViewById(R.id.trip_documents);
+
 
         // Set an onClickListener for "Day 1"
         day1TextView.setOnClickListener(new View.OnClickListener() {
@@ -50,5 +53,24 @@ public class TripDetailsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        tripMembers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TripDetailsActivity.this, members.class);
+                intent.putExtra("day", "Day 3"); // Pass "Day 3" information
+                startActivity(intent);
+            }
+        });
+
+        tripDocuments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TripDetailsActivity.this, documents.class);
+                intent.putExtra("day", "Day 3"); // Pass "Day 3" information
+                startActivity(intent);
+            }
+        });
+
     }
 }

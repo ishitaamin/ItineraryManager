@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0F5F9"
+    android:padding="16dp"
+    android:layout_marginTop="40dp"
+    android:fitsSystemWindows="true">
+
+    <!-- Title for the trip list -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Documents"
+        android:textColor="#006D77"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Scrollable container for the trips -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fadingEdge="none"
+        android:scrollbars="none"
+        android:layout_marginTop="12sp"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDocuments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+
+    </ScrollView>
+
+    <!-- Button to add a new trip -->
+    <Button
+        android:id="@+id/addDocumentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Add Document"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:backgroundTint="#006d77"
+        android:height="50dp"
+        app:cornerRadius="8dp"/>
+
+    <!-- Use dp for scaling -->
+
+</LinearLayout>
