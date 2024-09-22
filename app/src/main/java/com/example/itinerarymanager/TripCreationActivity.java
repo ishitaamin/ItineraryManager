@@ -85,6 +85,7 @@ public class TripCreationActivity extends AppCompatActivity {
 
             // Show a success message and finish the activity
 // In TripCreationActivity.java
+
             db.collection("trips")
                     .add(tripData)
                     .addOnSuccessListener(documentReference -> {
