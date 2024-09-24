@@ -22,8 +22,6 @@
         android:background="@drawable/list_item_background"
         android:layout_marginTop="15dp" />
 
-
-
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="match_parent"
@@ -38,8 +36,6 @@
         />
 
 
-
-    <!-- Next Button with bottom margin -->
     <Button
         android:id="@+id/nextButton"
         android:layout_width="match_parent"

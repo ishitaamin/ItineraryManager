@@ -17,13 +17,26 @@ public class TripDetailsActivity extends AppCompatActivity {
 
     private LinearLayout daysContainer;
     private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-
+    private TextView trip_members;
+    private TextView trip_documents;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_details);
 
         daysContainer = findViewById(R.id.days_container);
+        trip_members = findViewById(R.id.trip_members);
+        trip_documents = findViewById(R.id.trip_documents);
+
+        trip_members.setOnClickListener(v -> {
+            Intent intent = new Intent(TripDetailsActivity.this, members.class);
+            startActivity(intent);
+        });
+
+        trip_documents.setOnClickListener(v -> {
+            Intent intent = new Intent(TripDetailsActivity.this, documents.class);
+            startActivity(intent);
+        });
 
         Intent intent = getIntent();
         String tripName = intent.getStringExtra("tripName");
@@ -68,10 +81,13 @@ public class TripDetailsActivity extends AppCompatActivity {
             day_date.setText(sdf.format(calendar.getTime()));
             daysContainer.addView(dayCardView);
 
-            dayCardView.setOnClickListener(v -> {
-                Intent intent = new Intent(TripDetailsActivity.this, ItineraryActivity.class);
-                intent.putExtra("day", dayLabel);
-                startActivity(intent);
+            dayCardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(TripDetailsActivity.this, ItineraryActivity.class);
+                    intent.putExtra("day", dayLabel);
+                    startActivity(intent);
+                }
             });
 
             calendar.add(Calendar.DATE, 1);
