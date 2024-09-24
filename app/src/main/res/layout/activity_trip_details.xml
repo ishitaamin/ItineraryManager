@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Edit Details"
-                android:backgroundTint="#155E63"
+                android:backgroundTint="#106396"
                 android:textColor="#FFFFFF" />
 
             <Button
