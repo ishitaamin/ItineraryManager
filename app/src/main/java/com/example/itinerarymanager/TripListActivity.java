@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat;
 
 public class TripListActivity extends AppCompatActivity {
 
-    private static final int TRIP_CREATION_REQUEST_CODE = 1; // Request code for trip creation activity
+    private static final int TRIP_CREATION_REQUEST_CODE = 1;
     private LinearLayout tripsContainer;
 
 
@@ -29,17 +29,17 @@ public class TripListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trip_list_activity);
 
-        // Get the email passed from FirstActivity
+
         String userEmail = getIntent().getStringExtra("email");
 
         tripsContainer = findViewById(R.id.tripsContainer);
         Button addTripButton = findViewById(R.id.addTripButton);
 
-        // Load trips from Firestore based on the user's email when activity starts
+
         loadTripsFromFirestore(userEmail);
 
         addTripButton.setOnClickListener(v -> {
-            // Start TripCreationActivity using startActivityForResult to pause the current activity
+
             Intent intent = new Intent(TripListActivity.this, TripCreationActivity.class);
             intent.putExtra("email", userEmail); // Pass the user's email
             startActivityForResult(intent, TRIP_CREATION_REQUEST_CODE);
@@ -51,7 +51,7 @@ public class TripListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Nothing to do here since trips are reloaded only when coming back from TripCreationActivity
+
     }
 
     @Override
@@ -59,7 +59,7 @@ public class TripListActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == TRIP_CREATION_REQUEST_CODE && resultCode == RESULT_OK) {
-            // Reload trips only when a new trip is created
+
             String userEmail = getIntent().getStringExtra("email");
             loadTripsFromFirestore(userEmail);
         }
@@ -101,25 +101,25 @@ public class TripListActivity extends AppCompatActivity {
     }
 
 
-    // Method to create a card for each trip
+
     @SuppressLint("SetTextI18n")
     private void addTripCard(String tripName, String startDate, String endDate, String location, String status) {
-        // Inflate the trip_card.xml layout
+
         View tripCardView = getLayoutInflater().inflate(R.layout.trip_card, tripsContainer, false);
 
-        // Get the UI elements from the inflated layout
+
         TextView tripNameTextView = tripCardView.findViewById(R.id.tripNameTextView);
         TextView tripDateTextView = tripCardView.findViewById(R.id.tripDateTextView);
         TextView tripLocationTextView = tripCardView.findViewById(R.id.tripLocationTextView);
         TextView tripStatusTextView = tripCardView.findViewById(R.id.tripStatusTextView);
         Button viewTripButton = tripCardView.findViewById(R.id.viewTripButton);
 
-        // Set the trip details
+
         tripNameTextView.setText(tripName);
         tripDateTextView.setText("From: " + startDate + " To: " + endDate);
         tripLocationTextView.setText(location);
 
-        // Set the status and its background color based on the trip status
+
         tripStatusTextView.setText(status);
         if (status.equals("Planned")) {
             tripStatusTextView.setBackgroundResource(R.drawable.status_background_planned);
@@ -127,19 +127,19 @@ public class TripListActivity extends AppCompatActivity {
             tripStatusTextView.setBackgroundResource(R.drawable.status_background_completed);
         }
 
-        // Add OnClickListener to the View button
+
         viewTripButton.setOnClickListener(v -> {
-            // Start TripDetailsActivity and pass the relevant trip information
+
             Intent intent = new Intent(TripListActivity.this, TripDetailsActivity.class);
             intent.putExtra("tripName", tripName);
             intent.putExtra("startDate", startDate);
             intent.putExtra("endDate", endDate);
             intent.putExtra("location", location);
             intent.putExtra("status", status);
-            startActivity(intent); // Open the TripDetailsActivity
+            startActivity(intent);
         });
 
-        // Add the trip card to the container
+
         tripsContainer.addView(tripCardView);
     }
 

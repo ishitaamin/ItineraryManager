@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +30,8 @@ public class LoginActivity2 extends AppCompatActivity {
 
         EditText emailField = (findViewById(R.id.editTextTextEmailAddress));
         Button nextButton = findViewById(R.id.nextButton);
+        TextView signupLink = findViewById(R.id.signuplink);
+
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override

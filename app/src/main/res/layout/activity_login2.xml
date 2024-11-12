@@ -7,20 +7,30 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".LoginActivity2"
-    android:background="#006D77"
     android:gravity="center">
+
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_centerInParent="true"
+        android:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/logo" />
+
+
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/list_item_background"
         android:hint="Enter email address"
         android:inputType="textEmailAddress"
-        android:textSize="16sp"
+        android:outlineAmbientShadowColor="#3C3F41"
         android:padding="10dp"
         android:textColor="#333333"
-        android:background="@drawable/list_item_background"
-        android:layout_marginTop="15dp" />
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
@@ -40,11 +50,20 @@
         android:id="@+id/nextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:text="Log in"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
         android:backgroundTint="#E29578"
         android:textColor="@android:color/white"
         app:cornerRadius="8dp"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp" />
 
+    <TextView
+        android:id="@+id/signuplink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account? Sign up"
+        android:textColor="@color/button_blue"/>
 </LinearLayout>

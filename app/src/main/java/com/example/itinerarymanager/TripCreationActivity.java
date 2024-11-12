@@ -29,13 +29,13 @@ public class TripCreationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trip_creation_activity);
 
-        // Initialize UI elements
+
         tripNameInput = findViewById(R.id.tripNameInput);
         startDateInput = findViewById(R.id.startDateInput);
         endDateInput = findViewById(R.id.endDateInput);
         createTripButton = findViewById(R.id.createTripButton);
 
-        // Handle trip creation
+
         createTripButton.setOnClickListener(v -> createTrip());
     }
 
@@ -45,18 +45,17 @@ public class TripCreationActivity extends AppCompatActivity {
         String endDateString = endDateInput.getText().toString().trim();
         String userEmail = getIntent().getStringExtra("email");
 
-        // Input validation
+
         if (tripName.isEmpty() || startDateString.isEmpty() || endDateString.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Date format
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        sdf.setLenient(false); // Disable leniency to strictly check date format
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.setLenient(false);
         try {
-            // Parse start and end dates from string to Date
+
             Date startDate = sdf.parse(startDateString);
             Date endDate = sdf.parse(endDateString);
 
@@ -66,36 +65,35 @@ public class TripCreationActivity extends AppCompatActivity {
                 return;
             }
 
-            // Convert Date to Firestore Timestamp
+
             Timestamp startTimestamp = new Timestamp(startDate);
             Timestamp endTimestamp = new Timestamp(endDate);
 
-            // Firestore reference
+
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            // Create a new trip document
+
             Map<String, Object> tripData = new HashMap<>();
             tripData.put("tripName", tripName);
             tripData.put("startDate", startTimestamp);
             tripData.put("endDate", endTimestamp);
-            // Convert the String array to a List
+
             List<String> membersList = Arrays.asList(userEmail);
             tripData.put("members", membersList);
             tripData.put("status", "planned");
 
-            // Show a success message and finish the activity
-// In TripCreationActivity.java
+
 
             db.collection("trips")
                     .add(tripData)
                     .addOnSuccessListener(documentReference -> {
                         Toast.makeText(this, "Trip created successfully!", Toast.LENGTH_SHORT).show();
 
-                        // Indicate that the trip was created successfully
+
                         Intent resultIntent = new Intent();
                         setResult(RESULT_OK, resultIntent);
 
-                        // Return to the previous activity (TripListActivity)
+
                         finish();
                     })
                     .addOnFailureListener(e -> Toast.makeText(this, "Error creating trip: " + e.getMessage(), Toast.LENGTH_SHORT).show());
@@ -107,7 +105,7 @@ public class TripCreationActivity extends AppCompatActivity {
 
     }
 
-    // Optional: Reset the fields after the trip is created
+
     private void resetFields() {
         tripNameInput.setText("");
         startDateInput.setText("");

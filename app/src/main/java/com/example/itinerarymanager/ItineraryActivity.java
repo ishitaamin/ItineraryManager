@@ -7,7 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ItineraryActivity extends AppCompatActivity {
+public class
+ItineraryActivity extends AppCompatActivity {
     private Button addActivityButton;
     private Button btnDocuments;
 
@@ -19,7 +20,7 @@ public class ItineraryActivity extends AppCompatActivity {
 
         // Initialize the button
         addActivityButton = findViewById(R.id.addActivityButton);
-        btnDocuments = findViewById(R.id.addDocumentButton);
+//        btnDocuments = findViewById(R.id.addDocumentButton);
 
         // Set click listener for the button
         addActivityButton.setOnClickListener(new View.OnClickListener() {

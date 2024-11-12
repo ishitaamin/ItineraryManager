@@ -29,6 +29,6 @@ public class MainActivity extends AppCompatActivity {
         // Start LoginActivity2
         Intent intent = new Intent(MainActivity.this, LoginActivity2.class);
         startActivity(intent);
-        finish(); // Close MainActivity
+        finish();
     }
 }
